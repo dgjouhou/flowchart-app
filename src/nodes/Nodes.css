@@ -1,0 +1,348 @@
+.custom-node {
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 1px solid var(--text-primary);
+  background: white;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  text-align: center;
+  min-width: 100px;
+  position: relative;
+}
+
+.custom-node-process {
+  border-color: var(--primary-color);
+}
+
+.custom-node-decision {
+  /* border: 1px solid #f59e0b; Handled by SVG */
+  background: transparent;
+  border: none;
+  width: 175px;
+  height: 70px;
+  min-width: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.decision-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.custom-node-decision-content {
+  /* transform: rotate(-45deg); Removed */
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-node-io {
+  transform: skewX(-20deg);
+  border-color: #10b981;
+  /* Emerald */
+}
+
+.custom-node-io-content {
+  transform: skewX(20deg);
+}
+
+.custom-node-start-end {
+  border-radius: 20px;
+  background: #e2e8f0;
+  border-color: #64748b;
+}
+
+/* Handle customization */
+.react-flow__handle {
+  width: 8px;
+  height: 8px;
+  background: #555;
+}
+
+.node-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  outline: none;
+  padding: 0;
+}
+
+.decision-input {
+  font-size: 0.8rem;
+}
+
+.custom-node {
+  position: relative;
+}
+
+.node-delete-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1;
+  z-index: 10;
+}
+
+.custom-node:hover .node-delete-btn {
+  display: flex;
+}
+
+/* Loop Nodes */
+.custom-node-loop-start {
+  width: 120px;
+  height: 50px;
+  background: #e0f2fe;
+  /* Light Blue */
+  border: 2px solid #0ea5e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Trapezoid: Top wider */
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+  padding: 0 20px;
+}
+
+.custom-node-loop-end {
+  width: 120px;
+  height: 50px;
+  background: #e0f2fe;
+  border: 2px solid #0ea5e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Trapezoid: Bottom wider */
+  clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%);
+  padding: 0 20px;
+}
+
+.loop-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.loop-label {
+  font-size: 0.7rem;
+  color: #0369a1;
+  margin-bottom: 2px;
+}
+
+.loop-input {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #0284c7;
+}
+
+/* Adjust delete button position for loops due to clip-path */
+/* clip-path clips the button if it's outside. 
+   We might need to put the button inside the visible area or remove clip-path and use borders/svg.
+   Clip-path is easy but hides overflow. 
+   Let's try SVG background or just accept it might be clipped if outside.
+   Actually, if we use clip-path on the container, the button at -10px will be hidden.
+   
+   Alternative: Use a wrapper for shape and put button outside wrapper?
+   React Flow Node is the wrapper.
+   
+   Let's use a shape div INSIDE the node div.
+*/
+
+.custom-node-loop-start,
+.custom-node-loop-end {
+  background: transparent;
+  border: none;
+  clip-path: none;
+  padding: 0;
+  width: 130px;
+  height: 60px;
+}
+
+.loop-shape {
+  width: 100%;
+  height: 100%;
+  background: #e0f2fe;
+  border: 2px solid #0ea5e9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.loop-shape-start {
+  /* Trapezoid: Bottom wider (Start) */
+  clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%);
+}
+
+.loop-shape-end {
+  /* Inverted Trapezoid: Top wider (End) */
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+}
+
+/* Help Button */
+.node-help-btn {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  z-index: 10;
+}
+
+.node-help-tooltip {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #333;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.node-help-btn:hover+.node-help-tooltip {
+  opacity: 1;
+}
+
+.decision-label-true {
+  position: absolute;
+  bottom: -20px;
+  right: 50%;
+  transform: translateX(50%);
+  font-size: 10px;
+  color: #059669;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.decision-label-false {
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+  font-size: 10px;
+  color: #ef4444;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+/* Preparation Node (Hexagon) */
+.custom-node-preparation {
+  width: 120px;
+  height: 50px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preparation-shape {
+  width: 100%;
+  height: 100%;
+  background: #fef3c7;
+  /* Amber-100 */
+  border: 2px solid #d97706;
+  /* Amber-600 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  clip-path: polygon(15% 0, 85% 0, 100% 50%, 85% 100%, 15% 100%, 0% 50%);
+}
+
+.preparation-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.node-label-sm {
+  font-size: 0.7rem;
+  color: #92400e;
+  margin-bottom: 2px;
+}
+
+/* Placeholder Node */
+.custom-node-placeholder {
+  width: 100px;
+  height: 60px;
+  background: #f3f4f6;
+  border: 2px dashed #9ca3af;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.placeholder-content {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #9ca3af;
+}
+
+/* Decision Node Controls (Left Vertex) */
+/* Decision Node Controls (Left Vertex) */
+.custom-node-decision .node-delete-btn {
+  top: auto;
+  right: auto;
+  bottom: 10px;
+  left: -10px;
+  transform: none;
+}
+
+.custom-node-decision .node-help-btn {
+  top: auto;
+  left: -10px;
+  bottom: 35px;
+  transform: none;
+}
+
+.custom-node-decision .node-help-tooltip {
+  top: auto;
+  bottom: 60px;
+  left: -50px;
+  transform: none;
+}

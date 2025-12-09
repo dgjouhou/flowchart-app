@@ -1,0 +1,11 @@
+.flow-editor-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+/* Customize React Flow handles if needed */
+.react-flow__handle {
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+}

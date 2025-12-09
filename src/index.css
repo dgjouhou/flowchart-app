@@ -1,0 +1,28 @@
+:root {
+  --bg-color: #f8fafc;
+  --sidebar-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --primary-color: #3b82f6;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}

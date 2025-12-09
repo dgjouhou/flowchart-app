@@ -1,0 +1,57 @@
+.sidebar-container {
+    padding: 15px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sidebar-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-primary);
+}
+
+.sidebar-description {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.node-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.dnd-node {
+    height: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    font-size: 0.9rem;
+    background: white;
+    transition: all 0.2s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dnd-node:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dnd-node.input-node {
+    border-radius: 20px;
+    /* Capsule shape for Start/End */
+}
+
+.dnd-node.output-node {
+    /* Diamond shape approximation or just distinct style */
+    border-style: dashed;
+}

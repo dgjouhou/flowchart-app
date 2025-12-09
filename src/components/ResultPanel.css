@@ -1,0 +1,71 @@
+.result-panel-container {
+    padding: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.result-panel-empty {
+    padding: 20px;
+    color: #888;
+    text-align: center;
+}
+
+.panel-section h3 {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.logs-container {
+    background: #111;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    min-height: 150px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.log-item {
+    margin-bottom: 4px;
+    color: #ddd;
+}
+
+.log-error {
+    color: #ef4444;
+    margin-top: 5px;
+}
+
+.log-finished {
+    color: #10b981;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.variables-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.variables-table th,
+.variables-table td {
+    text-align: left;
+    padding: 6px;
+    border-bottom: 1px solid #333;
+}
+
+.variables-table th {
+    color: #aaa;
+}
+
+.no-variables {
+    color: #666;
+    font-style: italic;
+}
