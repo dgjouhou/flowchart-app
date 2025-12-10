@@ -29,7 +29,7 @@ export const problems: Problem[] = [
             { id: 'e4', source: 'placeholder2', target: 'loop-end', type: 'custom' },
             { id: 'e5', source: 'loop-end', target: 'end', type: 'custom' },
         ],
-        validate: (nodes: Node[], edges: Edge[]) => {
+        validate: (nodes: Node[], _edges: Edge[]) => {
             // Check for Loop Start
             const loopStart = nodes.find(n => n.type === 'loop-start');
             if (!loopStart) {
